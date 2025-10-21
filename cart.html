@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart | EasyWatch</title>
+  <link rel="stylesheet" href="cart.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-left">
+      <div class="logo">EASY WATCH</div>
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">HOME</a>
+        <a href="products.html" class="nav-link">WATCHES</a>
+        <a href="index.html#featured" class="nav-link">COLLECTION</a>
+        <a href="index.html#about" class="nav-link">ABOUT</a>
+      </nav>
+    </div>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search watches...">
+      </div>
+
+        
+        <span class="cart-badge"></span>
+      </button>
+      
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-container">
+    <!-- LEFT SECTION: Cart Items -->
+    <section class="cart-items-section">
+      <h1 class="page-title">Shopping Cart</h1>
+      <p class="page-subtitle">Review your items before checkout</p>
+      
+      <div class="cart-items-list" id="cartItemsList">
+        <!-- Cart items will be loaded here -->
+      </div>
+      
+      <div class="cart-empty" id="cartEmpty" style="display: none;">
+        <div class="cart-icon">🛒</div>
+        <p>Your cart is empty</p>
+        <a href="products.html" class="btn-shop">Continue Shopping</a>
+      </div>
+    </section>
+
+    <!-- RIGHT SECTION: Cart Summary -->
+    <aside class="cart-summary">
+      <div class="summary-header">
+        <h2>Order Summary</h2>
+      </div>
+      
+      <div class="summary-details">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="subtotal">PHP 0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span>FREE</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total</span>
+          <span id="total">PHP 0.00</span>
+        </div>
+      </div>
+      
+      <button class="btn-checkout" id="checkoutBtn">Proceed to Checkout</button>
+      <a href="products.html" class="btn-continue">Continue Shopping</a>
+    </aside>
+  </main>
+
+  <script>
+    // Load cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('easywatch_cart') || '[]');
+    
+    // Render cart items
+    function renderCart() {
+      const cartList = document.getElementById('cartItemsList');
+      const cartEmpty = document.getElementById('cartEmpty');
+      const cartBadge = document.querySelector('.cart-badge');
+      
+      const itemCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      cartBadge.textContent = itemCount;
+      
+      if (cart.length === 0) {
+        cartList.style.display = 'none';
+        cartEmpty.style.display = 'flex';
+        updateSummary();
+        return;
+      }
+      
+      cartList.style.display = 'block';
+      cartEmpty.style.display = 'none';
+      
+      cartList.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+          <div class="item-image">
+            <img src="${item.image}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=200&q=80'" />
+          </div>
+          <div class="item-details">
+            <h3 class="item-name">${item.name}</h3>
+            <p class="item-price">PHP ${item.price.toLocaleString('en-PH', { minimumFractionDigits: 2 })}</p>
+          </div>
+          <div class="item-controls">
+            <div class="qty-controls">
+              <button class="qty-btn" onclick="updateQuantity(${index}, -1)">−</button>
+              <span class="qty">${item.qty}</span>
+              <button class="qty-btn" onclick="updateQuantity(${index}, 1)">+</button>
+            </div>
+            <button class="remove-btn" onclick="removeItem(${index})">✕ Remove</button>
+          </div>
+          <div class="item-total">
+            PHP ${(item.price * item.qty).toLocaleString('en-PH', { minimumFractionDigits: 2 })}
+          </div>
+        </div>
+      `).join('');
+      
+      updateSummary();
+    }
+    
+    // Update quantity
+    function updateQuantity(index, change) {
+      if (cart[index]) {
+        cart[index].qty += change;
+        
+        if (cart[index].qty <= 0) {
+          removeItem(index);
+          return;
+        }
+        
+        saveCart();
+        renderCart();
+      }
+    }
+    
+    // Remove item
+    function removeItem(index) {
+      cart.splice(index, 1);
+      saveCart();
+      renderCart();
+    }
+    
+    // Save cart to localStorage
+    function saveCart() {
+      localStorage.setItem('easywatch_cart', JSON.stringify(cart));
+    }
+    
+    // Update summary
+    function updateSummary() {
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      document.getElementById('subtotal').textContent = `PHP ${subtotal.toLocaleString('en-PH', { minimumFractionDigits: 2 })}`;
+      document.getElementById('total').textContent = `PHP ${subtotal.toLocaleString('en-PH', { minimumFractionDigits: 2 })}`;
+    }
+    
+    // Checkout button
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+      alert('Proceeding to checkout...\n\nTotal: PHP ' + cart.reduce((sum, item) => sum + (item.price * item.qty), 0).toLocaleString('en-PH', { minimumFractionDigits: 2 }));
+    });
+    
+    // Initial render
+    renderCart();
+  </script>
+</body>
+</html>

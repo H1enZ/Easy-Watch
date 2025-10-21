@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyWatch | Product Page</title>
+  <link rel="stylesheet" href="buy.css" />
+  <link rel="stylesheet" href="cart-animation.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="nav-left">
+        <a href="index.html" class="logo-link">
+          <span class="logo-text">EASYWATCH</span>
+        </a>
+      </div>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="products.html" class="nav-link">WATCHES</a>
+        <a href="index.html#featured" class="nav-link">COLLECTION</a>
+        <a href="index.html#about" class="nav-link">ABOUT</a>
+        <a href="#footer" class="nav-link">CONTACT US</a>
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Search watches...">
+        </div>
+      </nav>
+
+      <div class="nav-right">
+        <a href="cart.html" class="cart-link">CARTS</a>
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PRODUCT SECTION -->
+  <main class="product-container">
+    <div class="product-image">
+      <img src="https://images.unsplash.com/photo-1622434641406-a158123450f9?w=600&q=80" alt="Santeiko Ghost White watch" id="mainProductImage" />
+    </div>
+
+    <div class="product-details">
+      <div class="brand">SEIKO</div>
+      <h2 class="product-title" id="productName">SANTEIKO - GHOST WHITE</h2>
+      
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span>(4.9) 127 reviews</span>
+      </div>
+
+      <div class="price-section">
+        <span class="current-price" id="productPrice">PHP 17,067.44</span>
+        <span class="discount-badge">20% OFF</span>
+      </div>
+
+      <!-- Strap Color -->
+      <div class="option">
+        <label class="option-label">Strap Color</label>
+        <div class="color-options">
+          <button class="color-btn black active" aria-label="Black"></button>
+          <button class="color-btn brown" aria-label="Brown"></button>
+          <button class="color-btn blue" aria-label="Blue"></button>
+          <button class="color-btn white" aria-label="White"></button>
+        </div>
+      </div>
+
+      <!-- Size -->
+      <div class="option">
+        <label class="option-label">Size</label>
+        <div class="size-options">
+          <button class="size-btn">40mm</button>
+          <button class="size-btn active">42mm</button>
+          <button class="size-btn">44mm</button>
+        </div>
+      </div>
+
+      <!-- Quantity -->
+      <div class="quantity-section">
+        <label class="option-label">Quantity</label>
+        <div class="qty-control">
+          <button class="qty-btn" id="decreaseQty">−</button>
+          <input class="qty-input" type="number" value="1" min="1" id="qtyInput" />
+          <button class="qty-btn" id="increaseQty">+</button>
+        </div>
+        <div class="stock-info">Only 3 left in stock</div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions">
+        <button class="btn add-cart" id="addToCartBtn">🛒 Add to Cart</button>
+        <button class="btn buy-now" id="buyNowBtn">Buy Now</button>
+        <button class="btn wishlist">♡ Add to Wishlist</button>
+      </div>
+
+      <!-- Product Features -->
+      <div class="product-features">
+        <div class="feature">
+          <span class="feature-icon">✓</span>
+          <span>2 Year Warranty</span>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">🚚</span>
+          <span>Free Shipping</span>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">↩️</span>
+          <span>30-Day Returns</span>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">✓</span>
+          <span>Authentic Guarantee</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- RECOMMENDED SECTION -->
+  <section class="recommended">
+    <h3>You might also like</h3>
+    <div class="card-container">
+      <div class="card" onclick="window.location.href='products.html'">
+        <img src="https://img.chrono24.com/images/uhren/31720707-shuvp12itktkue6hkkn43u07-ExtraLarge.jpg" alt="Omega Speedmaster" />
+        <div class="card-info">
+          <p class="card-name">Omega Speedmaster</p>
+          <p class="card-price">PHP 55,000</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="window.location.href='products.html'">
+        <img src="https://img.chrono24.com/images/uhren/42800576-hcj02l7no40dn4mpxxu7pi2w-ExtraLarge.jpg" alt="TAG Heuer Carrera Oyster" />
+        <div class="card-info">
+          <p class="card-name">TAG Heuer Carrera Oyster</p>
+          <p class="card-price">PHP 32,000</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="window.location.href='products.html'">
+        <img src="https://monochrome-watches.com/wp-content/uploads/2014/05/Breitling-Navitimer-01-46mm-1.jpeg" alt="Breitling Navitimer" />
+        <div class="card-info">
+          <p class="card-name">Breitling Navitimer</p>
+          <p class="card-price">PHP 71,000</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="window.location.href='products.html'">
+        <img src="https://cdn11.bigcommerce.com/s-f06f69/images/stencil/1280x1280/products/14547/61541/SSC915P1-1-800x800__53403.1665477955.jpg?c=2" alt="Seiko COKE-COLA" />
+        <div class="card-info">
+          <p class="card-name">Seiko COKE-COLA</p>
+          <p class="card-price">PHP 30,999</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Include cart sync script -->
+  <script src="cart-sync.js"></script>
+  
+  <script>
+    // Product data
+    const productId = 2; // Unique ID for this product
+    const qtyInput = document.getElementById('qtyInput');
+    const decreaseBtn = document.getElementById('decreaseQty');
+    const increaseBtn = document.getElementById('increaseQty');
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    const buyNowBtn = document.getElementById('buyNowBtn');
+
+    // Quantity controls
+    decreaseBtn.addEventListener('click', () => {
+      if (qtyInput.value > 1) {
+        qtyInput.value = parseInt(qtyInput.value) - 1;
+      }
+    });
+
+    increaseBtn.addEventListener('click', () => {
+      qtyInput.value = parseInt(qtyInput.value) + 1;
+    });
+
+    // Color selection with animation
+    document.querySelectorAll('.color-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        btn.style.transform = 'scale(1.1)';
+        setTimeout(() => btn.style.transform = 'scale(1)', 200);
+      });
+    });
+
+    // Size selection with animation
+    document.querySelectorAll('.size-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Add to cart with animation and localStorage
+    addToCartBtn.addEventListener('click', function() {
+      if (this.classList.contains('adding')) return;
+      
+      this.classList.add('adding');
+      
+      // Get product details
+      const productName = document.getElementById('productName').textContent;
+      const priceText = document.getElementById('productPrice').textContent;
+      const productPrice = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+      const productImage = document.getElementById('mainProductImage').src;
+      const quantity = parseInt(qtyInput.value);
+      
+      // Add to cart (using cart-sync.js function)
+      for (let i = 0; i < quantity; i++) {
+        addToCart(productId, productName, productPrice, productImage);
+      }
+      
+      // Animation
+      const productImageEl = document.getElementById('mainProductImage');
+      const cartLink = document.querySelector('.cart-link');
+      
+      if (productImageEl && cartLink) {
+        const imageRect = productImageEl.getBoundingClientRect();
+        const cartRect = cartLink.getBoundingClientRect();
+        
+        // Create flying image
+        const flyingImage = document.createElement('div');
+        flyingImage.className = 'flying-product';
+        flyingImage.style.cssText = `
+          position: fixed;
+          width: ${imageRect.width * 0.3}px;
+          height: ${imageRect.height * 0.3}px;
+          left: ${imageRect.left + imageRect.width / 2}px;
+          top: ${imageRect.top + imageRect.height / 2}px;
+          transform: translate(-50%, -50%);
+          z-index: 9999;
+          pointer-events: none;
+          transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+          opacity: 1;
+        `;
+        
+        const imgClone = productImageEl.cloneNode(true);
+        imgClone.style.cssText = `
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 8px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        `;
+        flyingImage.appendChild(imgClone);
+        document.body.appendChild(flyingImage);
+
+        // Animate button
+        this.textContent = 'ADDING...';
+        this.style.background = '#495667';
+        
+        // Trigger animation
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            flyingImage.style.left = `${cartRect.left + cartRect.width / 2}px`;
+            flyingImage.style.top = `${cartRect.top + cartRect.height / 2}px`;
+            flyingImage.style.opacity = '0';
+            flyingImage.style.transform = 'translate(-50%, -50%) scale(0.1)';
+          });
+        });
+
+        // Animate cart icon
+        setTimeout(() => {
+          cartLink.style.animation = 'cartBounce 0.5s ease';
+          setTimeout(() => cartLink.style.animation = '', 500);
+        }, 600);
+
+        // Clean up
+        setTimeout(() => {
+          flyingImage.remove();
+          this.textContent = 'ADDED ✓';
+          this.style.background = '#00b894';
+          this.classList.remove('adding');
+          
+          setTimeout(() => {
+            this.textContent = '🛒 Add to Cart';
+            this.style.background = '';
+          }, 2000);
+        }, 800);
+
+        // Particles
+        createParticles(this);
+      }
+    });
+
+    // Buy now button
+    buyNowBtn.addEventListener('click', function() {
+      const productName = document.getElementById('productName').textContent;
+      const priceText = document.getElementById('productPrice').textContent;
+      const productPrice = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+      const productImage = document.getElementById('mainProductImage').src;
+      const quantity = parseInt(qtyInput.value);
+      
+      // Add to cart
+      for (let i = 0; i < quantity; i++) {
+        addToCart(productId, productName, productPrice, productImage);
+      }
+      
+      // Redirect to cart
+      window.location.href = 'cart.html';
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      document.body.style.overflow = hamburger.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Particle effect helper
+    function createParticles(button) {
+      const rect = button.getBoundingClientRect();
+      const particleCount = 6;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'success-particle';
+        particle.style.cssText = `
+          position: fixed;
+          width: 8px;
+          height: 8px;
+          background: #00b894;
+          border-radius: 50%;
+          left: ${rect.left + rect.width / 2}px;
+          top: ${rect.top + rect.height / 2}px;
+          pointer-events: none;
+          z-index: 9998;
+        `;
+        document.body.appendChild(particle);
+        
+        const angle = (Math.PI * 2 * i) / particleCount;
+        const velocity = 50 + Math.random() * 50;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity;
+        
+        particle.animate([
+          { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+          { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 }
+        ], {
+          duration: 600,
+          easing: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+        }).onfinish = () => particle.remove();
+      }
+    }
+  </script>
+</body>
+</html>

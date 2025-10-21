@@ -1,0 +1,330 @@
+/* cart-animation.css */
+/* Add to Cart Animation Styles with Toast Notifications */
+
+/* Toast Container */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+/* Toast Notification */
+.toast-notification {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 300px;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateX(400px);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: all;
+  border-left: 4px solid #00b894;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Toast Icon */
+.toast-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: #00b894;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.toast-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Toast Content */
+.toast-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.toast-title {
+  font-family: var(--font-inter), 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: 0.3px;
+}
+
+.toast-message {
+  font-family: var(--font-inter), 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Toast Close Button */
+.toast-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.toast-close:hover {
+  color: #333;
+}
+
+/* Cart badge styling */
+.cart-link {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background: #e74c3c;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.cart-badge.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Cart bounce animation */
+@keyframes cartBounce {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  25% { 
+    transform: scale(1.25) rotate(-5deg); 
+  }
+  50% { 
+    transform: scale(0.95) rotate(5deg); 
+  }
+  75% { 
+    transform: scale(1.15) rotate(-3deg); 
+  }
+}
+
+/* Flying product animation */
+.flying-product {
+  animation: flyAndFade 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+}
+
+@keyframes flyAndFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(0.6) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.1) rotate(360deg);
+  }
+}
+
+/* Success particles */
+.success-particle {
+  animation: particleBurst 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+}
+
+@keyframes particleBurst {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 0), var(--ty, 0)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Button states */
+.add-to-cart-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-btn.adding {
+  pointer-events: none;
+}
+
+.add-to-cart-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.add-to-cart-btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Pulse effect on hover */
+.add-to-cart-btn:not(:disabled):hover {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  }
+}
+
+/* Success state animation */
+@keyframes successPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.add-to-cart-btn.success {
+  animation: successPop 0.4s ease;
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .toast-container {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    align-items: stretch;
+  }
+  
+  .toast-notification {
+    min-width: auto;
+    width: 100%;
+    padding: 14px 16px;
+  }
+  
+  .toast-title {
+    font-size: 13px;
+  }
+  
+  .toast-message {
+    font-size: 12px;
+  }
+  
+  .toast-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .toast-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .cart-badge {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    right: -10px;
+    top: -6px;
+  }
+  
+  .flying-product {
+    animation-duration: 0.6s !important;
+  }
+}
+
+/* Toast entrance animation variants */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Additional toast color variants */
+.toast-notification.success {
+  border-left-color: #00b894;
+}
+
+.toast-notification.success .toast-icon {
+  background: #00b894;
+}
+
+.toast-notification.error {
+  border-left-color: #e74c3c;
+}
+
+.toast-notification.error .toast-icon {
+  background: #e74c3c;
+}
+
+.toast-notification.info {
+  border-left-color: #495667;
+}
+
+.toast-notification.info .toast-icon {
+  background: #495667;
+}

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Shop Watches - EASY WATCH</title>
+  <link rel="stylesheet" href="globals.css" />
+  <link rel="stylesheet" href="products.css" />
+  <link rel="stylesheet" href="cart-animation.css" />  
+</head>
+<body>
+  
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="nav-left">
+        <a href="index.html" class="logo-link">
+          <img src="img/logo.png" alt="EASYWATCH" class="logo-img" onerror="this.style.display='none'" />
+          <span class="logo-text">EASYWATCH</span>
+        </a>
+      </div>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">WATCHES</a>
+        <a href="index.html#featured" class="nav-link">COLLECTION</a>
+        <a href="index.html#about" class="nav-link">ABOUT</a>
+        <a href="#footer" class="nav-link">CONTACT US</a>
+      </nav>
+      
+      <div class="nav-right">
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Search watches...">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </div>
+        
+        <a href="cart.html" class="cart-link">CART</a>
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="products-page">
+    
+    <!-- FILTERS BAR -->
+    <section class="filters-section">
+      <div class="filters-container">
+        <div class="filter-wrapper" id="priceFilter">
+          <button class="filter-btn">PRICES</button>
+          <div class="filter-dropdown">
+            <div class="price-range">
+              <div class="filter-option">
+                <input type="checkbox" id="price1" value="0-10000">
+                <label for="price1">Under ₱10,000</label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="price2" value="10000-25000">
+                <label for="price2">₱10,000 - ₱25,000</label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="price3" value="25000-50000">
+                <label for="price3">₱25,000 - ₱50,000</label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="price4" value="50000-999999">
+                <label for="price4">Above ₱50,000</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-wrapper" id="sizeFilter">
+          <button class="filter-btn">SIZES</button>
+          <div class="filter-dropdown">
+            <div class="filter-option">
+              <input type="checkbox" id="size40" value="40mm">
+              <label for="size40">40mm</label>
+            </div>
+            <div class="filter-option">
+              <input type="checkbox" id="size42" value="42mm">
+              <label for="size42">42mm</label>
+            </div>
+            <div class="filter-option">
+              <input type="checkbox" id="size44" value="44mm">
+              <label for="size44">44mm</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-wrapper" id="stockFilter">
+          <button class="filter-btn">STOCKS</button>
+          <div class="filter-dropdown">
+            <div class="filter-option">
+              <input type="checkbox" id="inStock" value="in-stock">
+              <label for="inStock">In Stock</label>
+            </div>
+            <div class="filter-option">
+              <input type="checkbox" id="outStock" value="out-of-stock">
+              <label for="outStock">Out of Stock</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-wrapper" id="saleFilter">
+          <button class="filter-btn">SALE</button>
+          <div class="filter-dropdown">
+            <div class="filter-option">
+              <input type="checkbox" id="onSale" value="on-sale">
+              <label for="onSale">On Sale</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Active Filters -->
+    <div class="active-filters" id="activeFilters" style="display: none;">
+      <span class="active-filters-label">Active Filters:</span>
+      <div id="filterTags"></div>
+      <button class="clear-all-btn" id="clearAll">Clear All</button>
+    </div>
+
+    <!-- PRODUCTS GRID -->
+    <section class="catalog-section">
+      <div class="results-count" id="resultsCount"></div>
+      <div class="catalog-grid" id="catalogGrid"></div>
+      <div class="no-results" id="noResults" style="display: none;">
+        <h3>No watches found</h3>
+        <p>Try adjusting your filters to see more results</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>EASY WATCH</h4>
+        <p>Precision meets perfection in every timepiece</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Watches</a></li>
+          <li><a href="#featured">Collection</a></li>
+          <li><a href="index.html">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Email: mikkopanergo@easywatch.com</p>
+        <p>Phone: +69 0919 123 456</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 EASY WATCH. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Products data
+    const products = [
+      {
+        id: 1,
+        name: "Seiko 5 Sport GMT",
+        description: "Automatic watch white background SSK033K1 steel black and blue bezel",
+        price: 22999,
+        rating: 4,
+        image: "img/seiko-gmt-white.jpg",
+        fallbackImage: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&q=80",
+        sizes: ["42mm", "44mm"],
+        inStock: true,
+        onSale: false,
+        buyLink: "buy.html?product=1"
+      },
+      {
+        id: 2,
+        name: "SANTEIKO - GHOST WHITE",
+        description: "Inspired by the iconic Santos design, featuring the prestigious Seiko NH35 automatic movement",
+        price: 17067.44,
+        rating: 5,
+        image: "img/santeiko-ghost.jpg",
+        fallbackImage: "https://images.unsplash.com/photo-1622434641406-a158123450f9?w=600&q=80",
+        sizes: ["40mm", "42mm"],
+        inStock: true,
+        onSale: true,
+        buyLink: "buy.html?product=2"
+      },
+      {
+        id: 3,
+        name: "Spirit Model Watch",
+        description: "Features a stopwatch function that can measure time up to 1/20th of a second and has a 12-hour counter",
+        price: 5970,
+        rating: 5,
+        image: "img/spirit-model.jpg",
+        fallbackImage: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=600&q=80",
+        sizes: ["40mm", "42mm", "44mm"],
+        inStock: true,
+        onSale: false,
+        buyLink: "buy.html?product=3"
+      },
+      {
+        id: 4,
+        name: "PROSPEX 1968 Diver's Modern",
+        description: "A new movement in the long-trusted 6R family that has a GMT function and a power reserve extended to a full 72 hours",
+        price: 92800,
+        rating: 5,
+        image: "img/prospex-diver.jpg",
+        fallbackImage: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=600&q=80",
+        sizes: ["42mm", "44mm"],
+        inStock: false,
+        onSale: false,
+        buyLink: "buy.html?product=4"
+      }
+    ];
+
+    let activeFilters = {
+      prices: [],
+      sizes: [],
+      stock: [],
+      sale: []
+    };
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      const filtered = products.filter(p => 
+        p.name.toLowerCase().includes(searchTerm) || 
+        p.description.toLowerCase().includes(searchTerm)
+      );
+      renderProducts(filtered);
+    });
+
+    // Render products
+    function renderProducts(productsToShow) {
+      const grid = document.getElementById('catalogGrid');
+      const noResults = document.getElementById('noResults');
+      const resultsCount = document.getElementById('resultsCount');
+
+      if (productsToShow.length === 0) {
+        grid.style.display = 'none';
+        noResults.style.display = 'block';
+        resultsCount.textContent = '';
+        return;
+      }
+
+      grid.style.display = 'grid';
+      noResults.style.display = 'none';
+      resultsCount.textContent = `Showing ${productsToShow.length} watch${productsToShow.length !== 1 ? 'es' : ''}`;
+
+      grid.innerHTML = productsToShow.map(product => {
+        const stars = '★'.repeat(product.rating) + (product.rating < 5 ? '<span class="star-empty">★</span>'.repeat(5 - product.rating) : '');
+        const stockClass = !product.inStock ? 'out-of-stock' : '';
+        
+        return `
+          <article class="watch-card ${stockClass}" onclick="window.location.href='${product.buyLink}'">
+            <div class="watch-image">
+              ${!product.inStock ? '<div class="stock-badge">Out of Stock</div>' : ''}
+              <img src="${product.image}" alt="${product.name}" onerror="this.src='${product.fallbackImage}'" />
+            </div>
+            <div class="watch-info">
+              <h3 class="watch-title">${product.name}</h3>
+              <p class="watch-description">${product.description}</p>
+              <div class="rating">${stars}</div>
+              <p class="watch-price">
+                PHP ${product.price.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                ${product.onSale ? '<span class="sale-badge">SALE</span>' : ''}
+              </p>
+              <button class="add-to-cart-btn" ${!product.inStock ? 'disabled' : ''} onclick="event.stopPropagation(); ${product.inStock ? `addToCartWithAnimation(this, ${product.id})` : ''}">
+                ${product.inStock ? 'ADD TO CART' : 'OUT OF STOCK'}
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Filter products
+    function filterProducts() {
+      let filtered = [...products];
+
+      // Price filter
+      if (activeFilters.prices.length > 0) {
+        filtered = filtered.filter(p => {
+          return activeFilters.prices.some(range => {
+            const [min, max] = range.split('-').map(Number);
+            return p.price >= min && p.price <= max;
+          });
+        });
+      }
+
+      // Size filter
+      if (activeFilters.sizes.length > 0) {
+        filtered = filtered.filter(p => {
+          return activeFilters.sizes.some(size => p.sizes.includes(size));
+        });
+      }
+
+      // Stock filter
+      if (activeFilters.stock.length > 0) {
+        filtered = filtered.filter(p => {
+          if (activeFilters.stock.includes('in-stock') && activeFilters.stock.includes('out-of-stock')) {
+            return true;
+          }
+          if (activeFilters.stock.includes('in-stock')) {
+            return p.inStock;
+          }
+          if (activeFilters.stock.includes('out-of-stock')) {
+            return !p.inStock;
+          }
+          return true;
+        });
+      }
+
+      // Sale filter
+      if (activeFilters.sale.length > 0 && activeFilters.sale.includes('on-sale')) {
+        filtered = filtered.filter(p => p.onSale);
+      }
+
+      renderProducts(filtered);
+      updateActiveFiltersDisplay();
+    }
+
+    // Update active filters display
+    function updateActiveFiltersDisplay() {
+      const activeFiltersDiv = document.getElementById('activeFilters');
+      const filterTags = document.getElementById('filterTags');
+      
+      const allFilters = [
+        ...activeFilters.prices.map(f => ({ type: 'prices', value: f, label: formatPriceRange(f) })),
+        ...activeFilters.sizes.map(f => ({ type: 'sizes', value: f, label: f })),
+        ...activeFilters.stock.map(f => ({ type: 'stock', value: f, label: f === 'in-stock' ? 'In Stock' : 'Out of Stock' })),
+        ...activeFilters.sale.map(f => ({ type: 'sale', value: f, label: 'On Sale' }))
+      ];
+
+      if (allFilters.length === 0) {
+        activeFiltersDiv.style.display = 'none';
+        return;
+      }
+
+      activeFiltersDiv.style.display = 'flex';
+      filterTags.innerHTML = allFilters.map(filter => `
+        <div class="filter-tag">
+          ${filter.label}
+          <button onclick="removeFilter('${filter.type}', '${filter.value}')">×</button>
+        </div>
+      `).join('');
+    }
+
+    function formatPriceRange(range) {
+      const [min, max] = range.split('-').map(Number);
+      if (max >= 999999) return `Above ₱${min.toLocaleString()}`;
+      if (min === 0) return `Under ₱${max.toLocaleString()}`;
+      return `₱${min.toLocaleString()} - ₱${max.toLocaleString()}`;
+    }
+
+    // Remove filter
+    function removeFilter(type, value) {
+      const index = activeFilters[type].indexOf(value);
+      if (index > -1) {
+        activeFilters[type].splice(index, 1);
+      }
+      
+      const checkbox = document.querySelector(`input[value="${value}"]`);
+      if (checkbox) checkbox.checked = false;
+      
+      filterProducts();
+    }
+
+    // Clear all filters
+    document.getElementById('clearAll').addEventListener('click', () => {
+      activeFilters = { prices: [], sizes: [], stock: [], sale: [] };
+      document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      filterProducts();
+    });
+
+    // Filter dropdown toggle
+    document.querySelectorAll('.filter-wrapper .filter-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const wrapper = e.target.closest('.filter-wrapper');
+        const isActive = wrapper.classList.contains('active');
+        
+        document.querySelectorAll('.filter-wrapper').forEach(w => w.classList.remove('active'));
+        
+        if (!isActive) {
+          wrapper.classList.add('active');
+        }
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.filter-wrapper')) {
+        document.querySelectorAll('.filter-wrapper').forEach(w => w.classList.remove('active'));
+      }
+    });
+
+    // Handle checkbox changes
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener('change', (e) => {
+        const value = e.target.value;
+        const filterType = e.target.closest('.filter-wrapper').id.replace('Filter', '');
+        
+        let filterKey;
+        if (filterType === 'price') filterKey = 'prices';
+        else if (filterType === 'size') filterKey = 'sizes';
+        else if (filterType === 'stock') filterKey = 'stock';
+        else if (filterType === 'sale') filterKey = 'sale';
+
+        if (e.target.checked) {
+          if (!activeFilters[filterKey].includes(value)) {
+            activeFilters[filterKey].push(value);
+          }
+        } else {
+          const index = activeFilters[filterKey].indexOf(value);
+          if (index > -1) {
+            activeFilters[filterKey].splice(index, 1);
+          }
+        }
+
+        filterProducts();
+      });
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      document.body.style.overflow = hamburger.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Initial render
+    renderProducts(products);
+  </script>
+  <script src="cart-sync.js"></script>
+</body>
+</html>
