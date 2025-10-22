@@ -1,5 +1,4 @@
-// cart-sync.js - Shared cart functionality across all pages
-// This replaces cart-animation.js with localStorage support
+
 
 // Initialize cart from localStorage
 let cart = JSON.parse(localStorage.getItem('easywatch_cart') || '[]');
