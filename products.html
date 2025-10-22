@@ -180,7 +180,8 @@
         sizes: ["42mm", "44mm"],
         inStock: true,
         onSale: false,
-        buyLink: "buy.html?product=1"
+        buyLink: "product1.html?product=1"
+        
       },
       {
         id: 2,
@@ -193,7 +194,8 @@
         sizes: ["40mm", "42mm"],
         inStock: true,
         onSale: true,
-        buyLink: "buy.html?product=2"
+        buyLink: "product2.html?product=2"
+       
       },
       {
         id: 3,
@@ -206,7 +208,7 @@
         sizes: ["40mm", "42mm", "44mm"],
         inStock: true,
         onSale: false,
-        buyLink: "buy.html?product=3"
+        buyLink: "product3.html?product=3"
       },
       {
         id: 4,
@@ -219,7 +221,7 @@
         sizes: ["42mm", "44mm"],
         inStock: false,
         onSale: false,
-        buyLink: "buy.html?product=4"
+        buyLink: "product4.html?product=4"
       }
     ];
 
@@ -331,7 +333,7 @@
       updateActiveFiltersDisplay();
     }
 
-    // Update active filters display
+
     function updateActiveFiltersDisplay() {
       const activeFiltersDiv = document.getElementById('activeFilters');
       const filterTags = document.getElementById('filterTags');
@@ -384,7 +386,7 @@
       filterProducts();
     });
 
-    // Filter dropdown toggle
+
     document.querySelectorAll('.filter-wrapper .filter-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const wrapper = e.target.closest('.filter-wrapper');
@@ -398,14 +400,14 @@
       });
     });
 
-    // Close dropdowns when clicking outside
+   
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.filter-wrapper')) {
         document.querySelectorAll('.filter-wrapper').forEach(w => w.classList.remove('active'));
       }
     });
 
-    // Handle checkbox changes
+
     document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
       checkbox.addEventListener('change', (e) => {
         const value = e.target.value;
