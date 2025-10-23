@@ -1,7 +1,7 @@
 
 let cartCount = 0;
 
-// Function to create toast notification
+
 function showToastNotification(productName) {
   // Create toast container if it doesn't exist
   let toastContainer = document.getElementById('toastContainer');
@@ -12,7 +12,7 @@ function showToastNotification(productName) {
     document.body.appendChild(toastContainer);
   }
 
-  // Create toast element
+t
   const toast = document.createElement('div');
   toast.className = 'toast-notification';
   toast.innerHTML = `
@@ -30,12 +30,12 @@ function showToastNotification(productName) {
   
   toastContainer.appendChild(toast);
   
-  // Trigger animation
+ n
   setTimeout(() => {
     toast.classList.add('show');
   }, 10);
   
-  // Auto remove after 3 seconds
+
   setTimeout(() => {
     toast.classList.remove('show');
     setTimeout(() => {
@@ -44,7 +44,6 @@ function showToastNotification(productName) {
   }, 3000);
 }
 
-// Function to update cart count display
 function updateCartCount() {
   const cartLink = document.querySelector('.cart-link');
   if (cartLink) {
@@ -53,7 +52,7 @@ function updateCartCount() {
       countBadge.textContent = cartCount;
       countBadge.classList.add('show');
     } else if (cartCount > 0) {
-      // Create badge if it doesn't exist
+  
       const badge = document.createElement('span');
       badge.className = 'cart-badge show';
       badge.textContent = cartCount;
@@ -64,7 +63,7 @@ function updateCartCount() {
 
 // Main add to cart animation function
 function addToCartWithAnimation(button, productId) {
-  // Prevent multiple clicks
+
   if (button.classList.contains('adding')) return;
   
   button.classList.add('adding');
@@ -79,11 +78,10 @@ function addToCartWithAnimation(button, productId) {
     return;
   }
 
-  // Get positions
   const imageRect = productImage.getBoundingClientRect();
   const cartRect = cartLink.getBoundingClientRect();
   
-  // Create flying image clone
+
   const flyingImage = document.createElement('div');
   flyingImage.className = 'flying-product';
   flyingImage.style.cssText = `
@@ -99,7 +97,7 @@ function addToCartWithAnimation(button, productId) {
     opacity: 1;
   `;
   
-  // Clone the image
+
   const imgClone = productImage.cloneNode(true);
   imgClone.style.cssText = `
     width: 100%;
@@ -111,14 +109,14 @@ function addToCartWithAnimation(button, productId) {
   flyingImage.appendChild(imgClone);
   document.body.appendChild(flyingImage);
 
-  // Animate button
+
   button.textContent = 'ADDING...';
   button.style.background = '#495667';
   
-  // Trigger animation on next frame
+
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      // Move to cart
+      
       flyingImage.style.left = `${cartRect.left + cartRect.width / 2}px`;
       flyingImage.style.top = `${cartRect.top + cartRect.height / 2}px`;
       flyingImage.style.opacity = '0';
@@ -132,7 +130,7 @@ function addToCartWithAnimation(button, productId) {
     cartCount++;
     updateCartCount();
     
-    // Show toast notification
+    
     showToastNotification(productName);
     
     setTimeout(() => {
@@ -140,25 +138,24 @@ function addToCartWithAnimation(button, productId) {
     }, 500);
   }, 600);
 
-  // Clean up and reset button
   setTimeout(() => {
     flyingImage.remove();
     button.textContent = 'ADDED ✓';
     button.style.background = '#00b894';
     button.classList.remove('adding');
     
-    // Reset button after delay
+  
     setTimeout(() => {
       button.textContent = 'ADD TO CART';
       button.style.background = '';
     }, 2000);
   }, 800);
 
-  // Add success particles effect
+ 
   createParticles(button);
 }
 
-// Particle effect for extra flair
+
 function createParticles(button) {
   const rect = button.getBoundingClientRect();
   const particleCount = 6;
@@ -194,8 +191,7 @@ function createParticles(button) {
   }
 }
 
-// Update the renderProducts function to include the animation
-// Replace the button onclick with this:
+
 function renderProductsWithAnimation(productsToShow) {
   const grid = document.getElementById('catalogGrid');
   const noResults = document.getElementById('noResults');
