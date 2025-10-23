@@ -1,7 +1,4 @@
-// Add to Cart Animation System with Toast Notifications
-// Add this script to your products.html file
 
-// Cart count state
 let cartCount = 0;
 
 // Function to create toast notification
